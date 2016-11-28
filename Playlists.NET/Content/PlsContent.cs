@@ -31,7 +31,7 @@ namespace Playlists.NET.Content
             }
             sb.Append("NumberOfEntries=").Append(nr).AppendLine();
             sb.AppendLine();
-            sb.AppendLine("Version=2");
+            sb.Append("Version=2");
 
             return sb.ToString();
         }

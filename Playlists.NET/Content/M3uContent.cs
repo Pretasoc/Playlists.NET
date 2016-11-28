@@ -26,17 +26,17 @@ namespace Playlists.NET.Content
                 {
                     if (!String.IsNullOrEmpty(entry.Album))
                     {
-                        sb.Append("#EXTALB:").Append(entry.Album);
+                        sb.Append("#EXTALB:").Append(entry.Album).AppendLine();
                     }
                     if (!String.IsNullOrEmpty(entry.AlbumArtist))
                     {
-                        sb.Append("#EXTART:").Append(entry.AlbumArtist);
+                        sb.Append("#EXTART:").Append(entry.AlbumArtist).AppendLine();
                     }
                     sb.Append("#EXTINF:").Append((int)entry.Duration.TotalSeconds).Append(',').Append(entry.Title).AppendLine();
                 }
                 sb.AppendLine(entry.Path);
             }
-
+            sb = sb.Replace(Environment.NewLine, "", sb.Length - 3, 3);
             return sb.ToString();
         }
 
