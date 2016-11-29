@@ -11,12 +11,13 @@ namespace Playlists.NET.Content
         public string Create(PlsPlaylist playlist)
         {
             StringBuilder sb = new StringBuilder();
-            int nr = 1;
+            int nr = 0;
 
             sb.AppendLine("[playlist]");
             sb.AppendLine();
             foreach(var entry in playlist.PlaylistEntries)
             {
+                nr++;
                 sb.AppendLine(ToFile(entry.Path, nr));
                 if (!String.IsNullOrEmpty(entry.Title))
                 {
@@ -27,7 +28,6 @@ namespace Playlists.NET.Content
                     sb.AppendLine(ToLength(entry.Length, nr));
                 }
                 sb.AppendLine();
-                nr++;
             }
             sb.Append("NumberOfEntries=").Append(nr).AppendLine();
             sb.AppendLine();
@@ -46,7 +46,6 @@ namespace Playlists.NET.Content
                 string header = streamReader.ReadLine().Trim();
                 if (header.Trim() != "[playlist]")
                 {
-                    playlist.NumberOfEntries = 0;
                     return playlist;
                 }
             }
@@ -82,7 +81,7 @@ namespace Playlists.NET.Content
                     }
                 }
             }
-            playlist.NumberOfEntries = playlist.PlaylistEntries.Count;
+            playlist.PlaylistEntries = playlist.PlaylistEntries.OrderBy(e => e.Nr).ToList();
             return playlist;
         }
 

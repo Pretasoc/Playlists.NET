@@ -3,10 +3,6 @@ using Playlists.NET.Content;
 using Playlists.NET.Model;
 using Playlists.NET.Tests;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Playlists.UWP.Tests
 {
@@ -43,9 +39,9 @@ namespace Playlists.UWP.Tests
                 Path = @"D:\Muzyka\Andrea Bocelli\04 E Chiove.mp3",
                 Title = "E Chiove",
             });
-            string s = content.Create(playlist);
-            string p = Helpers.Read("PlaylistNotExt.m3u");
-            Assert.AreEqual(s, p);
+            string created = content.Create(playlist);
+            string fromFile = Helpers.Read("PlaylistNotExt.m3u");
+            Assert.AreEqual(created, fromFile);
         }
 
         [TestMethod]
@@ -78,9 +74,9 @@ namespace Playlists.UWP.Tests
                 Path = @"D:\Muzyka\Andrea Bocelli\04 E Chiove.mp3",
                 Title = "Andrea Bocelli - E Chiove",
             });
-            string s = content.Create(playlist);
-            string p = Helpers.Read("PlaylistExt.m3u");
-            Assert.AreEqual(s, p);
+            string created = content.Create(playlist);
+            string fromFile = Helpers.Read("PlaylistExt.m3u");
+            Assert.AreEqual(created, fromFile);
         }
 
         [TestMethod]
@@ -114,16 +110,16 @@ namespace Playlists.UWP.Tests
                 Title = "E Chiove",
             });
             var stream = Helpers.ReadStream("PlaylistNotExt.m3u");
-            var p = content.GetFromStream(stream);
+            var file = content.GetFromStream(stream);
             stream.Dispose();
-            Assert.AreEqual(playlist.IsExtended, p.IsExtended);
-            Assert.AreEqual(playlist.PlaylistEntries.Count, p.PlaylistEntries.Count);
-            Assert.AreEqual(playlist.PlaylistEntries[0].Path, p.PlaylistEntries[0].Path);
-            Assert.AreEqual(playlist.PlaylistEntries[0].Title, p.PlaylistEntries[0].Title);
-            Assert.AreEqual(playlist.PlaylistEntries[1].Path, p.PlaylistEntries[1].Path);
-            Assert.AreEqual("", p.PlaylistEntries[1].Title);
-            Assert.AreEqual(playlist.PlaylistEntries[2].Path, p.PlaylistEntries[2].Path);
-            Assert.AreNotEqual(playlist.PlaylistEntries[2].Title, p.PlaylistEntries[2].Title);
+            Assert.AreEqual(playlist.IsExtended, file.IsExtended);
+            Assert.AreEqual(playlist.PlaylistEntries.Count, file.PlaylistEntries.Count);
+            Assert.AreEqual(playlist.PlaylistEntries[0].Path, file.PlaylistEntries[0].Path);
+            Assert.AreEqual(playlist.PlaylistEntries[0].Title, file.PlaylistEntries[0].Title);
+            Assert.AreEqual(playlist.PlaylistEntries[1].Path, file.PlaylistEntries[1].Path);
+            Assert.AreEqual("", file.PlaylistEntries[1].Title);
+            Assert.AreEqual(playlist.PlaylistEntries[2].Path, file.PlaylistEntries[2].Path);
+            Assert.AreNotEqual(playlist.PlaylistEntries[2].Title, file.PlaylistEntries[2].Title);
             stream.Dispose();
         }
 
@@ -158,16 +154,16 @@ namespace Playlists.UWP.Tests
                 Title = "Andrea Bocelli - E Chiove",
             });
             var stream = Helpers.ReadStream("PlaylistExt.m3u");
-            var p = content.GetFromStream(stream);
+            var file = content.GetFromStream(stream);
             stream.Dispose();
-            Assert.AreEqual(playlist.IsExtended, p.IsExtended);
-            Assert.AreEqual(playlist.PlaylistEntries.Count, p.PlaylistEntries.Count);
-            Assert.AreEqual(playlist.PlaylistEntries[0].Path, p.PlaylistEntries[0].Path);
-            Assert.AreEqual(playlist.PlaylistEntries[0].Title, p.PlaylistEntries[0].Title);
-            Assert.AreEqual(playlist.PlaylistEntries[1].Path, p.PlaylistEntries[1].Path);
-            Assert.AreEqual(playlist.PlaylistEntries[1].Title, p.PlaylistEntries[1].Title);
-            Assert.AreEqual(playlist.PlaylistEntries[2].Path, p.PlaylistEntries[2].Path);
-            Assert.AreEqual(playlist.PlaylistEntries[2].Title, p.PlaylistEntries[2].Title);
+            Assert.AreEqual(playlist.IsExtended, file.IsExtended);
+            Assert.AreEqual(playlist.PlaylistEntries.Count, file.PlaylistEntries.Count);
+            Assert.AreEqual(playlist.PlaylistEntries[0].Path, file.PlaylistEntries[0].Path);
+            Assert.AreEqual(playlist.PlaylistEntries[0].Title, file.PlaylistEntries[0].Title);
+            Assert.AreEqual(playlist.PlaylistEntries[1].Path, file.PlaylistEntries[1].Path);
+            Assert.AreEqual(playlist.PlaylistEntries[1].Title, file.PlaylistEntries[1].Title);
+            Assert.AreEqual(playlist.PlaylistEntries[2].Path, file.PlaylistEntries[2].Path);
+            Assert.AreEqual(playlist.PlaylistEntries[2].Title, file.PlaylistEntries[2].Title);
             stream.Dispose();
         }
 

@@ -3,6 +3,6 @@
     public class PlsPlaylist : BasePlaylist<PlsPlaylistEntry>
     {
         public int Version { get; set; }
-        public int NumberOfEntries { get; set; }
+        public int NumberOfEntries { get { return PlaylistEntries.Count; } }
     }
 }
