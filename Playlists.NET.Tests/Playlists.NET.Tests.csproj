@@ -54,6 +54,7 @@
     <Compile Include="M3uTest.cs" />
     <Compile Include="PlsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UtilsTests.cs" />
     <Compile Include="WplTests.cs" />
     <Compile Include="ZplTests.cs" />
   </ItemGroup>

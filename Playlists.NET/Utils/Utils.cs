@@ -5,51 +5,11 @@ namespace Playlists.NET.Utils
 {
     public class Utils
     {
-        public static string MakeAbsolutePath(string filePath, string folderPath)
+        public static string MakeAbsolutePath(string folderPath, string filePath)
         {
-            return new Uri(new Uri(folderPath), filePath).ToString();
-        }
-
-        public  static string CreateFullFilePath(string filePath, string folderPath)
-        {
-            string fullpath = "";
-            if (folderPath.EndsWith(@"\"))
-            {
-                folderPath = folderPath.Remove(folderPath.Length - 1);
-            }
-            if (filePath.StartsWith(@"\"))
-            {
-                fullpath = folderPath + filePath;
-            }
-            else
-            {
-                bool isRooted = false;
-                try
-                {
-                    isRooted = Path.IsPathRooted(filePath);
-                }
-                catch (Exception)
-                { }
-                if (isRooted)
-                {
-                    fullpath = filePath;
-                }
-                else if (filePath.StartsWith(@"..\"))
-                {
-                    try
-                    {
-                        Uri uri = new Uri(new Uri(folderPath), filePath);
-                        fullpath = uri.ToString();
-                    }
-                    catch (Exception)
-                    { }
-                }
-                else
-                {
-                    fullpath = folderPath + @"\" + filePath;
-                }
-            }
-            return fullpath;
+            string path = Path.Combine(folderPath, filePath);
+            path = Path.GetFullPath(path);
+            return path;
         }
 
         public  static string UnEscape(string content)
