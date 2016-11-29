@@ -27,12 +27,12 @@ namespace Playlists.NET.Content
                     XAttribute att = new XAttribute("albumArtist", entry.AlbumArtist);
                     media.Add(att);
                 }
-                if (!String.IsNullOrEmpty(entry.AlbumArtist))
+                if (!String.IsNullOrEmpty(entry.TrackTitle))
                 {
                     XAttribute att = new XAttribute("trackTitle", entry.TrackTitle);
                     media.Add(att);
                 }
-                if (!String.IsNullOrEmpty(entry.AlbumArtist))
+                if (!String.IsNullOrEmpty(entry.TrackArtist))
                 {
                     XAttribute att = new XAttribute("trackArtist", entry.TrackArtist);
                     media.Add(att);

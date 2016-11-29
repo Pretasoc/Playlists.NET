@@ -56,11 +56,19 @@ namespace Playlists.NET.Content
                 if (line.StartsWith("File"))
                 {
                     string path = GetPath(line);
-                    playlist.PlaylistEntries.Add(new PlsPlaylistEntry()
+                    var entry = playlist.PlaylistEntries.SingleOrDefault(e => e.Nr == nr);
+                    if (entry == null)
                     {
-                        Path = path,
-                        Nr = nr
-                    });
+                        playlist.PlaylistEntries.Add(new PlsPlaylistEntry()
+                        {
+                            Nr = nr,
+                            Path = path
+                        });
+                    }
+                    else
+                    {
+                        entry.Path = path;
+                    }
                 }
                 else if (line.StartsWith("Title"))
                 {
@@ -68,7 +76,18 @@ namespace Playlists.NET.Content
                     if (!String.IsNullOrEmpty(title))
                     {
                         var entry = playlist.PlaylistEntries.SingleOrDefault(e => e.Nr == nr);
-                        entry.Title = title;
+                        if (entry == null)
+                        {
+                            playlist.PlaylistEntries.Add(new PlsPlaylistEntry()
+                            {
+                                Nr = nr,
+                                Title = title
+                            });
+                        }
+                        else
+                        {
+                            entry.Title = title;
+                        }
                     }
                 }
                 else if (line.StartsWith("Length"))
@@ -77,7 +96,18 @@ namespace Playlists.NET.Content
                     if (length != null)
                     {
                         var entry = playlist.PlaylistEntries.SingleOrDefault(e => e.Nr == nr);
-                        entry.Length = length;
+                        if (entry == null)
+                        {
+                            playlist.PlaylistEntries.Add(new PlsPlaylistEntry()
+                            {
+                                Nr = nr,
+                                Length = length
+                            });
+                        }
+                        else
+                        {
+                            entry.Length = length;
+                        }
                     }
                 }
             }

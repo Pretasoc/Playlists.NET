@@ -54,6 +54,7 @@
     <Compile Include="M3uTest.cs" />
     <Compile Include="PlsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WplTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Playlists.NET\Playlists.NET.csproj">
@@ -70,10 +71,22 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Examples\Empty.wpl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Examples\Playlist.pls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Examples\Playlist.wpl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Examples\Playlist2.pls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Examples\Playlist2.wpl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Examples\Smart.wpl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
