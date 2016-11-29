@@ -55,6 +55,7 @@
     <Compile Include="PlsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WplTests.cs" />
+    <Compile Include="ZplTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Playlists.NET\Playlists.NET.csproj">
@@ -74,16 +75,25 @@
     <None Include="Examples\Empty.wpl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Examples\Empty.zpl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Examples\Playlist.pls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Examples\Playlist.wpl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Examples\Playlist.zpl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Examples\Playlist2.pls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Examples\Playlist2.wpl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Examples\Playlist2.zpl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Examples\Smart.wpl">
