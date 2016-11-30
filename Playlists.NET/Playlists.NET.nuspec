@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Playlists.NET</id>
+    <version>0.9</version>
+    <title>Playlists.NET</title>
+    <authors>Tomasz Walecki</authors>
+    <owners>$author$</owners>
+    <licenseUrl>https://github.com/tmk907/Playlists.NET/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/tmk907/Playlists.NET</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Simple library for reading and writing playlist's files. Supported formats: m3u, pls, wpl, zpl.</description>
+    <releaseNotes>First release.</releaseNotes>
+    <tags>playlists m3u pls wpl zpl m3u8</tags>
+  </metadata>
+  <files>
+    <file src="bin\Release\Playlists.NET.dll" target="lib\netstandard1.3\Playlists.NET.dll" />
+</files>
+</package>
