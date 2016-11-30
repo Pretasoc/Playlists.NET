@@ -23,7 +23,7 @@ namespace Playlists.NET.Content
                 {
                     sb.AppendLine(ToTitle(entry.Title, nr));
                 }
-                if (entry.Length != null)
+                if (entry.Length != TimeSpan.Zero)
                 {
                     sb.AppendLine(ToLength(entry.Length, nr));
                 }
@@ -92,7 +92,7 @@ namespace Playlists.NET.Content
                 }
                 else if (line.StartsWith("Length"))
                 {
-                    int? length = GetLength(line);
+                    TimeSpan length = GetLength(line);
                     if (length != null)
                     {
                         var entry = playlist.PlaylistEntries.SingleOrDefault(e => e.Nr == nr);
@@ -139,10 +139,10 @@ namespace Playlists.NET.Content
             return sb.ToString();
         }
 
-        private string ToLength(int? length, int nr)
+        private string ToLength(TimeSpan length, int nr)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("Length").Append(nr).Append("=").Append(length);
+            sb.Append("Length").Append(nr).Append("=").Append((int)length.TotalSeconds);
             return sb.ToString();
         }
 
@@ -207,12 +207,12 @@ namespace Playlists.NET.Content
             return title;
         }
 
-        private int? GetLength(string line)
+        private TimeSpan GetLength(string line)
         {
-            int? length = null;
+            TimeSpan length = TimeSpan.Zero;
             try
             {
-                length = Int32.Parse(line.Substring(line.IndexOf('=') + 1));
+                length = TimeSpan.FromSeconds(Int32.Parse(line.Substring(line.IndexOf('=') + 1)));
             }
             catch { }
             return length;

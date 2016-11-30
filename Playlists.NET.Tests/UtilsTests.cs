@@ -111,6 +111,12 @@ namespace Playlists.NET.Tests
             expectedPath = @"..\Other\Contradanza.mp3";
             path = Utils.Utils.MakeRelativePath(folderPath, filePath);
             Assert.AreEqual(path, expectedPath);
+
+            folderPath = @"D:\Muzyka\Vanessa Mee\Folder1";
+            filePath = @"D:\Muzyka\Other1\Other2\Contradanza.mp3";
+            expectedPath = @"..\..\Other1\Other2\Contradanza.mp3";
+            path = Utils.Utils.MakeRelativePath(folderPath, filePath);
+            Assert.AreEqual(path, expectedPath);
         }
     }
 }
