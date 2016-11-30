@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Playlists.NET.Content;
 using Playlists.NET.Model;
+using System;
 
 namespace Playlists.NET.Tests
 {
@@ -15,21 +16,21 @@ namespace Playlists.NET.Tests
             playlist.Version = 2;
             playlist.PlaylistEntries.Add(new PlsPlaylistEntry()
             {
-                Length = null,
+                Length = TimeSpan.Zero,
                 Nr = 1,
                 Path = "http://stream3.polskieradio.pl:8902/",
                 Title = null,
             });
             playlist.PlaylistEntries.Add(new PlsPlaylistEntry()
             {
-                Length = -1,
+                Length = TimeSpan.FromSeconds(-1),
                 Nr = 1,
                 Path = "http://stream.polskastacja.pl/ps43_mp3?player_group=PS_EXT_MP3",
                 Title = "Server1-> >>> P O L S K A S T A C J A <<<- Ballady Rockowe",
             });
             playlist.PlaylistEntries.Add(new PlsPlaylistEntry()
             {
-                Length = 5720,
+                Length = TimeSpan.FromSeconds(5720),
                 Nr = 1,
                 Path = "/home/uzytkownik/muzyka-1.mp3",
                 Title = "Myslovitz - Sprzedawcy Marzeń",
@@ -48,28 +49,28 @@ namespace Playlists.NET.Tests
             playlist.Version = 2;
             playlist.PlaylistEntries.Add(new PlsPlaylistEntry()
             {
-                Length = null,
+                Length = TimeSpan.Zero,
                 Nr = 1,
                 Path = "http://stream3.polskieradio.pl:8902/",
                 Title = null,
             });
             playlist.PlaylistEntries.Add(new PlsPlaylistEntry()
             {
-                Length = -1,
+                Length = TimeSpan.FromSeconds(-1),
                 Nr = 2,
                 Path = "http://stream.polskastacja.pl/ps43_mp3?player_group=PS_EXT_MP3",
                 Title = "Server1-> >>> P O L S K A S T A C J A <<<- Ballady Rockowe",
             });
             playlist.PlaylistEntries.Add(new PlsPlaylistEntry()
             {
-                Length = 5720,
+                Length = TimeSpan.FromSeconds(5720),
                 Nr = 3,
                 Path = "/home/uzytkownik/muzyka-1.mp3",
                 Title = "Myslovitz - Sprzedawcy Marzeń",
             });
             playlist.PlaylistEntries.Add(new PlsPlaylistEntry()
             {
-                Length = null,
+                Length = TimeSpan.Zero,
                 Nr = 4,
                 Path = "Weird Al - This Is The Life.mp3",
                 Title = "Weird Al Yankovic - This is the Life",
