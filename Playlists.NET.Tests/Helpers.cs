@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Playlists.NET.Tests
+namespace PlaylistsNET.Tests
 {
     public class Helpers
     {

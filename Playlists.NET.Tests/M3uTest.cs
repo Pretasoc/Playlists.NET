@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Playlists.NET.Content;
-using Playlists.NET.Model;
-using Playlists.NET.Tests;
+using PlaylistsNET.Content;
+using PlaylistsNET.Model;
+using PlaylistsNET.Tests;
 using System;
 
 namespace Playlists.UWP.Tests

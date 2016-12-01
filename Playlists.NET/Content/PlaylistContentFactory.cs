@@ -1,6 +1,6 @@
-﻿using Playlists.NET.Model;
+﻿using PlaylistsNET.Model;
 
-namespace Playlists.NET.Content
+namespace PlaylistsNET.Content
 {
     public class PlaylistContentFactory
     {

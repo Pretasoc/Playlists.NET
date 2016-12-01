@@ -2,9 +2,9 @@
 using System.IO;
 using System.Linq;
 using System.Text;
-using Playlists.NET.Model;
+using PlaylistsNET.Model;
 
-namespace Playlists.NET.Content
+namespace PlaylistsNET.Content
 {
     public class PlsContent : IPlaylistContent<PlsPlaylist>
     {

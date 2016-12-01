@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Playlists.NET.Tests
+namespace PlaylistsNET.Tests
 {
     [TestClass]
     public class UtilsTests

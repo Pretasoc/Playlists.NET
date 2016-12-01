@@ -1,9 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Playlists.NET.Content;
-using Playlists.NET.Model;
+using PlaylistsNET.Content;
+using PlaylistsNET.Model;
 using System;
 
-namespace Playlists.NET.Tests
+namespace PlaylistsNET.Tests
 {
     [TestClass]
     public class ZplTests

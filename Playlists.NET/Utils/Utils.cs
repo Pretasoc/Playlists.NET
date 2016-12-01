@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Playlists.NET.Utils
+namespace PlaylistsNET.Utils
 {
     public class Utils
     {

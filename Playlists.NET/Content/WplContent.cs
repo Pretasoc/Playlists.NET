@@ -1,10 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Text;
-using Playlists.NET.Model;
+using PlaylistsNET.Model;
 using System.Xml.Linq;
 
-namespace Playlists.NET.Content
+namespace PlaylistsNET.Content
 {
     public class WplContent : IPlaylistContent<WplPlaylist>
     {

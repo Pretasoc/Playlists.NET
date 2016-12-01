@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Playlists.NET.Model
+namespace PlaylistsNET.Model
 {
     public interface IBasePlaylist<out T> where T : BasePlaylistEntry
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Text;
-using Playlists.NET.Model;
+using PlaylistsNET.Model;
 
-namespace Playlists.NET.Content
+namespace PlaylistsNET.Content
 {
     public class M3uContent : IPlaylistContent<M3uPlaylist>
     {

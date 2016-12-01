@@ -1,8 +1,8 @@
-﻿using Playlists.NET.Model;
+﻿using PlaylistsNET.Model;
 using System;
 using System.IO;
 
-namespace Playlists.NET.Content
+namespace PlaylistsNET.Content
 {
     public class BaseContent : IPlaylistContent<BasePlaylist<BasePlaylistEntry>>
     {

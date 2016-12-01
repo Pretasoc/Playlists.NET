@@ -4,11 +4,11 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Playlists.NET.Model;
-using Playlists.NET.Utils;
+using PlaylistsNET.Model;
+using PlaylistsNET.Utils;
 using System.Xml.Linq;
 
-namespace Playlists.NET.Content
+namespace PlaylistsNET.Content
 {
     public class ZplContent : IPlaylistContent<ZplPlaylist>
     {

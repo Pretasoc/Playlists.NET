@@ -1,7 +1,7 @@
-﻿using Playlists.NET.Model;
+﻿using PlaylistsNET.Model;
 using System.IO;
 
-namespace Playlists.NET.Content
+namespace PlaylistsNET.Content
 {
     public interface IPlaylistContentReader<out T> where T : IBasePlaylist<BasePlaylistEntry>
     {

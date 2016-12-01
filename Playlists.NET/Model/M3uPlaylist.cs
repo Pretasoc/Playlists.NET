@@ -1,4 +1,4 @@
-﻿namespace Playlists.NET.Model
+﻿namespace PlaylistsNET.Model
 {
     public class M3uPlaylist : BasePlaylist<M3uPlaylistEntry>
     {
