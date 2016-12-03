@@ -73,6 +73,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Examples\2seq.wpl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Examples\2seqoutput.wpl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Examples\Empty.wpl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

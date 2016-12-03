@@ -11,7 +11,6 @@ namespace PlaylistsNET.Content
     public interface IPlaylistContent<T> : IPlaylistContentReader<T> where T : IBasePlaylist<BasePlaylistEntry>
     {
         string Create(T playlist);
-        void Update(T playlist, Stream stream);
-        string Update(T playlist, string contentToUpdate);
+        string Update(T playlist, Stream stream);
     }
 }

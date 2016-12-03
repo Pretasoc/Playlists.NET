@@ -16,12 +16,7 @@ namespace PlaylistsNET.Content
             throw new NotImplementedException();
         }
 
-        public string Update(BasePlaylist<BasePlaylistEntry> playlist, string contentToUpdate)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(BasePlaylist<BasePlaylistEntry> playlist, Stream stream)
+        public string Update(BasePlaylist<BasePlaylistEntry> playlist, Stream stream)
         {
             throw new NotImplementedException();
         }

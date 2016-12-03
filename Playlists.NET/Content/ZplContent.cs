@@ -15,34 +15,7 @@ namespace PlaylistsNET.Content
         public string Create(ZplPlaylist playlist)
         {
             StringBuilder sb = new StringBuilder();
-            XElement seq = new XElement("seq");
-            foreach (var entry in playlist.PlaylistEntries)
-            {
-                XElement media = new XElement("media");
-                XAttribute src = new XAttribute("src", entry.Path);
-                media.Add(src);
-                if (!String.IsNullOrEmpty(entry.AlbumArtist))
-                {
-                    XAttribute att = new XAttribute("albumTitle", entry.AlbumTitle);
-                    media.Add(att);
-                }
-                if (!String.IsNullOrEmpty(entry.AlbumArtist))
-                {
-                    XAttribute att = new XAttribute("albumArtist", entry.AlbumArtist);
-                    media.Add(att);
-                }
-                if (!String.IsNullOrEmpty(entry.TrackTitle))
-                {
-                    XAttribute att = new XAttribute("trackTitle", entry.TrackTitle);
-                    media.Add(att);
-                }
-                if (!String.IsNullOrEmpty(entry.TrackArtist))
-                {
-                    XAttribute att = new XAttribute("trackArtist", entry.TrackArtist);
-                    media.Add(att);
-                }
-                seq.Add(media);
-            }
+            XElement seq = CreateSeqWithMedia(playlist);
             XElement body = new XElement("body");
             body.Add(seq);
             XElement title = new XElement("title", playlist.Title);
@@ -87,14 +60,66 @@ namespace PlaylistsNET.Content
             return playlist;
         }
 
-        public string Update(ZplPlaylist playlist, string contentToUpdate)
+        public string Update(ZplPlaylist playlist, Stream stream)
         {
-            throw new NotImplementedException();
+            XDocument doc = XDocument.Load(stream);
+            var gg = doc.ToString();
+            XElement mainDocument = doc.Element("smil");
+            XElement title = mainDocument.Element("head").Element("title");
+            title.ReplaceWith(new XElement("title", playlist.Title));
+            var seq = mainDocument.Elements("body").Elements("seq");
+            XElement seqWithMedia = null;
+            foreach (var s in seq)
+            {
+                var m3 = s.Elements("media");
+                int i = 0;
+                foreach (var a in m3) { i++; }
+                if (i > 0)
+                {
+                    seqWithMedia = s;
+                    break;
+                }
+            }
+            if (seqWithMedia != null)
+            {
+                var newSeq = CreateSeqWithMedia(playlist);
+                seqWithMedia.ReplaceWith(newSeq);
+            }
+
+            return doc.ToString();
         }
 
-        public void Update(ZplPlaylist playlist, Stream stream)
+        private XElement CreateSeqWithMedia(ZplPlaylist playlist)
         {
-            throw new NotImplementedException();
+            XElement seq = new XElement("seq");
+            foreach (var entry in playlist.PlaylistEntries)
+            {
+                XElement media = new XElement("media");
+                XAttribute src = new XAttribute("src", entry.Path);
+                media.Add(src);
+                if (!String.IsNullOrEmpty(entry.AlbumArtist))
+                {
+                    XAttribute att = new XAttribute("albumTitle", entry.AlbumTitle);
+                    media.Add(att);
+                }
+                if (!String.IsNullOrEmpty(entry.AlbumArtist))
+                {
+                    XAttribute att = new XAttribute("albumArtist", entry.AlbumArtist);
+                    media.Add(att);
+                }
+                if (!String.IsNullOrEmpty(entry.TrackTitle))
+                {
+                    XAttribute att = new XAttribute("trackTitle", entry.TrackTitle);
+                    media.Add(att);
+                }
+                if (!String.IsNullOrEmpty(entry.TrackArtist))
+                {
+                    XAttribute att = new XAttribute("trackArtist", entry.TrackArtist);
+                    media.Add(att);
+                }
+                seq.Add(media);
+            }
+            return seq;
         }
     }
 }

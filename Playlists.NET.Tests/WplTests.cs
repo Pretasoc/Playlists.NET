@@ -107,5 +107,28 @@ namespace PlaylistsNET.Tests
             Assert.AreEqual(playlist.PlaylistEntries.Count, file.PlaylistEntries.Count);
             stream.Dispose();
         }
+
+        [TestMethod]
+        public void Update_UpdateFileSaveAndCompareWithCorrect_Equal()
+        {
+            WplContent content = new WplContent();
+            WplPlaylist playlist = new WplPlaylist();
+            playlist.Title = "abc";
+            playlist.PlaylistEntries.Add(new WplPlaylistEntry()
+            {
+                AlbumArtist = "Nieznany wykonawca",
+                AlbumTitle = "Nieznany album",
+                Path = @"D:\abc.wav",
+                TrackArtist = "Nieznany",
+                TrackTitle = "abc"
+            });
+            var stream = Helpers.ReadStream("2seq.wpl");
+            string updatedContent = content.Update(playlist, stream);
+            stream.Dispose();
+            Helpers.Save("2seqoutputTest.wpl", updatedContent);
+            string updated = Helpers.Read("2seqoutputTest.wpl");
+            string expected = Helpers.Read("2seqoutput.wpl");
+            Assert.AreEqual(updated, expected);
+        }
     }
 }

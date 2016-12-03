@@ -108,12 +108,7 @@ namespace PlaylistsNET.Content
             return playlist;
         }
 
-        public string Update(M3uPlaylist playlist, string contentToUpdate)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(M3uPlaylist playlist, Stream stream)
+        public string Update(M3uPlaylist playlist, Stream stream)
         {
             throw new NotImplementedException();
         }

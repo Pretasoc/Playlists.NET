@@ -115,13 +115,9 @@ namespace PlaylistsNET.Content
             return playlist;
         }
 
-        public string Update(PlsPlaylist playlist, string contentToUpdate)
+        public string Update(PlsPlaylist playlist, Stream stream)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Update(PlsPlaylist playlist, Stream stream)
-        {
+            //return Create(playlist);
             throw new NotImplementedException();
         }
 
