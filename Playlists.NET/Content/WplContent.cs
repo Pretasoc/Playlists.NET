@@ -44,6 +44,9 @@ namespace PlaylistsNET.Content
                 string trackArtist = Utils.Utils.UnEscape(media.Attribute("trackArtist")?.Value);
                 string albumTitle = Utils.Utils.UnEscape(media.Attribute("albumTitle")?.Value);
                 string albumArtist = Utils.Utils.UnEscape(media.Attribute("albumArtist")?.Value);
+                int miliseconds = 0;
+                Int32.TryParse(Utils.Utils.UnEscape(media.Attribute("duration")?.Value), out miliseconds);
+                TimeSpan duration = TimeSpan.FromMilliseconds(miliseconds);
                 playlist.PlaylistEntries.Add(new WplPlaylistEntry()
                 {
                     AlbumArtist = albumArtist,
@@ -117,6 +120,11 @@ namespace PlaylistsNET.Content
                 if (!String.IsNullOrEmpty(entry.TrackArtist))
                 {
                     XAttribute att = new XAttribute("trackArtist", entry.TrackArtist);
+                    media.Add(att);
+                }
+                if (entry.Duration!=null && entry.Duration != TimeSpan.Zero)
+                {
+                    XAttribute att = new XAttribute("duration", (int)entry.Duration.TotalMilliseconds);
                     media.Add(att);
                 }
                 seq.Add(media);
