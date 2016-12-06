@@ -70,7 +70,8 @@ namespace PlaylistsNET.Content
             XDocument doc = XDocument.Load(stream);
             var gg= doc.ToString();
             XElement mainDocument = doc.Element("smil");
-            XElement title = mainDocument.Element("head").Element("title");
+            XElement head = mainDocument.Element("head");
+            XElement title = head.Element("title");
             title.ReplaceWith(new XElement("title", playlist.Title));
             var seq = mainDocument.Elements("body").Elements("seq");
             XElement seqWithMedia = null;

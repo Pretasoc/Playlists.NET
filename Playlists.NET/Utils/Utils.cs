@@ -41,13 +41,13 @@ namespace PlaylistsNET.Utils
         public  static string UnEscape(string content)
         {
             if (content == null) return content;
-            return content.Replace("&amp;", "&").Replace("&apos;", "'").Replace("&quot;", @"""").Replace("&gt;", ">").Replace("&lt;", "<");
+            return content.Replace("&amp;", "&").Replace("&apos;", "'").Replace("&quot;", "\"").Replace("&gt;", ">").Replace("&lt;", "<");
         }
 
         public static string Escape(string content)
         {
             if (content == null) return null;
-            return content.Replace("&", "&amp;").Replace("<", "&lt;");
+            return content.Replace("&", "&amp;").Replace("'", "&apos;").Replace("\"", "&quot;").Replace(">", "&gt;").Replace("<", "&lt;");
         }
     }
 }

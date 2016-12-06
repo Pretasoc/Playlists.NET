@@ -133,5 +133,26 @@ namespace PlaylistsNET.Tests
             string expected = Helpers.Read("2seqoutput.wpl");
             Assert.AreEqual(updated, expected);
         }
+
+        [TestMethod]
+        public void Test_UnEscape()
+        {
+            WplContent content = new WplContent();
+            WplPlaylist playlist = new WplPlaylist();
+            playlist.Title = "Eurowizja";
+            playlist.PlaylistEntries.Add(new WplPlaylistEntry()
+            {
+                AlbumArtist = "E<>laiza",
+                AlbumTitle = "E<u>r'o&vision \"Song Contest 2014",
+                Duration = TimeSpan.Zero,
+                Path = @"D:\Muzyka\Eurowizja\Eurowizja 2014\Elaiza - Is It Right.mp3",
+                TrackArtist = "Elaiza",
+                TrackTitle = "Is It Right"
+            });
+
+            string created = content.Create(playlist);
+            string fromFile = Helpers.Read("playlist3b.wpl");
+            Assert.AreEqual(created, fromFile);
+        }
     }
 }

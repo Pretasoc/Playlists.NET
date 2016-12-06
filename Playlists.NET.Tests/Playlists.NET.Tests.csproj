@@ -103,6 +103,9 @@
     <None Include="Examples\Playlist2.zpl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Examples\playlist3b.wpl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Examples\Smart.wpl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
