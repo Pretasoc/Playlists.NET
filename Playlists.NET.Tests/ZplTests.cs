@@ -18,6 +18,7 @@ namespace PlaylistsNET.Tests
             {
                 AlbumArtist = null,
                 AlbumTitle = "",
+                Duration = TimeSpan.FromMilliseconds(185364),
                 Path = @"D:\Muzyka\Eurowizja\Eurowizja 2014\Can-linn & Kasey Smith - Heartbeat(Irlandia).mp3",
                 TrackArtist = "Can-linn & Kasey Smith",
                 TrackTitle = "Heartbeat"
@@ -26,6 +27,7 @@ namespace PlaylistsNET.Tests
             {
                 AlbumArtist = "Elaiza",
                 AlbumTitle = "Eurovision Song Contest 2014",
+                Duration = TimeSpan.Zero,
                 Path = @"D:\Muzyka\Eurowizja\Eurowizja 2014\Elaiza - Is It Right.mp3",
                 TrackArtist = "Elaiza",
                 TrackTitle = "Is It Right"
@@ -46,6 +48,7 @@ namespace PlaylistsNET.Tests
             {
                 AlbumArtist = null,
                 AlbumTitle = "",
+                Duration = TimeSpan.FromMilliseconds(185364),
                 Path = @"D:\Muzyka\Eurowizja\Eurowizja 2014\Can-linn & Kasey Smith - Heartbeat(Irlandia).mp3",
                 TrackArtist = "Can-linn & Kasey Smith",
                 TrackTitle = "Heartbeat"

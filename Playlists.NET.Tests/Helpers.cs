@@ -28,7 +28,7 @@ namespace PlaylistsNET.Tests
 
         public static void Save(string fileName, string content)
         {
-            Stream s = new FileStream(@"Examples/" + fileName, FileMode.OpenOrCreate);
+            Stream s = new FileStream(@"Examples/" + fileName, FileMode.Create);
             StreamWriter sw = new StreamWriter(s);
             sw.Write(content);
             sw.Flush();
