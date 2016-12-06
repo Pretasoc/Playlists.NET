@@ -2,6 +2,7 @@
 using PlaylistsNET.Content;
 using PlaylistsNET.Model;
 using System;
+using System.IO;
 
 namespace PlaylistsNET.Tests
 {
@@ -125,6 +126,8 @@ namespace PlaylistsNET.Tests
                 TrackArtist = "Nieznany",
                 TrackTitle = "abc"
             });
+            playlist.Author = "me";
+            playlist.Generator = "Playlists.NET";
             var stream = Helpers.ReadStream("2seq.wpl");
             string updatedContent = content.Update(playlist, stream);
             stream.Dispose();

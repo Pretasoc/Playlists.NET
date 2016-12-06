@@ -107,7 +107,7 @@ namespace PlaylistsNET.Content
 
             return playlist;
         }
-
+        
         public string Update(WplPlaylist playlist, Stream stream)
         {
             XDocument doc = XDocument.Load(stream);
