@@ -17,10 +17,16 @@ playlist.IsExtended = true;
 playlist.PlaylistEntries.Add(new M3uPlaylistEntry()
 {
     Album = "New album",
-    AlbumArtist = "Unknown",
+    AlbumArtist = "",
     Duration = System.TimeSpan.FromSeconds(175),
     Path = @"C:\Music\songs.mp3",
     Title = "Song Title"
 });
 string toSave = content.Create(playlist);
+/*
+#EXTM3U
+#EXTALB:New album
+#EXTINF:175,Song Title
+C:\Music\songs.mp3
+*/
 ```
