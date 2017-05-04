@@ -7,15 +7,46 @@ namespace PlaylistsNET.Utils
     {
         public static string MakeAbsolutePath(string folderPath, string filePath)
         {
-            string path = Path.Combine(folderPath, filePath);
-            path = Path.GetFullPath(path);
-            return path;
+            if (String.IsNullOrWhiteSpace(filePath)) return filePath;
+
+            if (filePath.Contains(@"://")) return filePath; //stream
+            if (filePath.Length > 3 && filePath[1] == ':' && filePath[2] == '/') return filePath; //absolute local path
+
+            if (filePath[0] == '/' || filePath[0] == '\\') //relative path
+            {
+                filePath = filePath.Substring(1);
+            }
+            try
+            {
+                string path = Path.Combine(folderPath, filePath);
+                path = Path.GetFullPath(path);
+                return path;
+            }
+            catch (ArgumentException ex)
+            {
+                return filePath;
+            }
+            catch (PathTooLongException)
+            {
+                return filePath;
+            }
+            catch (NotSupportedException)
+            {
+                return filePath;
+            }
         }
 
-        public static String MakeRelativePath(string folderPath, string fileAbdolutePath)
+        //public static string MakeAbsolutePath(string folderPath, string filePath)
+        //{
+        //    string path = Path.Combine(folderPath, filePath);
+        //    path = Path.GetFullPath(path);
+        //    return path;
+        //}
+
+        public static String MakeRelativePath(string folderPath, string fileAbsolutePath)
         {
             if (String.IsNullOrEmpty(folderPath)) throw new ArgumentNullException("folderPath");
-            if (String.IsNullOrEmpty(fileAbdolutePath)) throw new ArgumentNullException("filePath");
+            if (String.IsNullOrEmpty(fileAbsolutePath)) throw new ArgumentNullException("filePath");
 
             if (!folderPath.EndsWith(Path.DirectorySeparatorChar.ToString()))
             {
@@ -23,9 +54,9 @@ namespace PlaylistsNET.Utils
             }
 
             Uri folderUri = new Uri(folderPath);
-            Uri fileAbsoluteUri = new Uri(fileAbdolutePath);
+            Uri fileAbsoluteUri = new Uri(fileAbsolutePath);
 
-            if (folderUri.Scheme != fileAbsoluteUri.Scheme) { return fileAbdolutePath; } // path can't be made relative.
+            if (folderUri.Scheme != fileAbsoluteUri.Scheme) { return fileAbsolutePath; } // path can't be made relative.
 
             Uri relativeUri = folderUri.MakeRelativeUri(fileAbsoluteUri);
             String relativePath = Uri.UnescapeDataString(relativeUri.ToString());
