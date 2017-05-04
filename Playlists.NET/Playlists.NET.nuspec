@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Playlists.NET</id>
-    <version>1.0</version>
+    <version>1.2</version>
     <title>Playlists.NET</title>
     <authors>Tomasz Walecki</authors>
     <owners>$author$</owners>
@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/tmk907/Playlists.NET</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Simple library for reading and writing playlist's files. Supported formats: m3u, pls, wpl, zpl.</description>
-    <releaseNotes>updates</releaseNotes>
+    <releaseNotes>Improves MakeAbsolutePath method</releaseNotes>
     <tags>playlists m3u pls wpl zpl m3u8 playlist</tags>
   </metadata>
   <files>
